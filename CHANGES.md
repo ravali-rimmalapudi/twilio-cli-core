@@ -1,25 +1,3 @@
-## [5.29.0](https://github.com/twilio/twilio-cli-core/compare/5.28.3...5.29.0) (2021-09-23)
-
-
-### Library - Features
-
-* Enable GitHub actions. ([#150](https://github.com/twilio/twilio-cli-core/issues/150)) ([002dd1f](https://github.com/twilio/twilio-cli-core/commit/002dd1f9593187cd580d7c139609420e5a33317f))
-
-
-### Library - Fixes
-
-* Updated api definitions ([906518f](https://github.com/twilio/twilio-cli-core/commit/906518f5fbdfa154604c5288f4ebd9eaf46a48b3))
-
----------------------------
-**Events**
-- Add segment sink
-
-**Messaging**
-- Add post_approval_required attribute in GET us_app_to_person_usecase api response
-- Add Identity Status, Russell 3000, Tax Exempt Status and Should Skip SecVet fields for Brand Registrations
-- Add Should Skip Secondary Vetting optional flag parameter to create Brand API
-
-
 twilio-cli-core changelog
 =====================
 
