@@ -1,3 +1,15 @@
+### [5.29.1](https://github.com/ravali-rimmalapudi/twilio-cli-core/compare/5.29.0...5.29.1) (2021-10-06)
+
+
+### Library - Fixes
+
+* fix naming ([#157](https://github.com/ravali-rimmalapudi/twilio-cli-core/issues/157)) ([d454b81](https://github.com/ravali-rimmalapudi/twilio-cli-core/commit/d454b811344ae11283e32c13f14e01d9946bfabf))
+
+
+### Library - Chores
+
+* Added changes to use scripts instead of community Github actions ([#155](https://github.com/ravali-rimmalapudi/twilio-cli-core/issues/155)) ([27bd508](https://github.com/ravali-rimmalapudi/twilio-cli-core/commit/27bd508171b16eaf0036bdff7e0d21117570bf5f))
+
 ---------------------------
 **Events**
 - Add segment sink
