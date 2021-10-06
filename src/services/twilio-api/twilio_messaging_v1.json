@@ -2487,7 +2487,7 @@
             "application/x-www-form-urlencoded": {
               "schema": {
                 "properties": {
-                  "A2PProfileBundleSid": {
+                  "A2pProfileBundleSid": {
                     "description": "A2P Messaging Profile Bundle Sid.",
                     "maxLength": 34,
                     "minLength": 34,
@@ -2516,7 +2516,7 @@
                 },
                 "required": [
                   "CustomerProfileBundleSid",
-                  "A2PProfileBundleSid"
+                  "A2pProfileBundleSid"
                 ],
                 "title": "CreateBrandRegistrationsRequest",
                 "type": "object"
