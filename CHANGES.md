@@ -1,3 +1,5 @@
+## [5.30.0](https://github.com/ravali-rimmalapudi/twilio-cli-core/compare/5.29.1...5.30.0) (2021-10-07)
+
 ---------------------------
 **Library - Fix**
 - [PR #44](https://github.com/twilio/twilio-oai/pull/44): fix naming of params. Thanks to [@shwetha-manvinkurke](https://github.com/shwetha-manvinkurke)!
