@@ -1,14 +1,14 @@
-### [5.29.1](https://github.com/ravali-rimmalapudi/twilio-cli-core/compare/5.29.0...5.29.1) (2021-10-06)
+## [5.29.0](https://github.com/twilio/twilio-cli-core/compare/5.28.3...5.29.0) (2021-09-23)
+
+
+### Library - Features
+
+* Enable GitHub actions. ([#150](https://github.com/twilio/twilio-cli-core/issues/150)) ([002dd1f](https://github.com/twilio/twilio-cli-core/commit/002dd1f9593187cd580d7c139609420e5a33317f))
 
 
 ### Library - Fixes
 
-* fix naming ([#157](https://github.com/ravali-rimmalapudi/twilio-cli-core/issues/157)) ([d454b81](https://github.com/ravali-rimmalapudi/twilio-cli-core/commit/d454b811344ae11283e32c13f14e01d9946bfabf))
-
-
-### Library - Chores
-
-* Added changes to use scripts instead of community Github actions ([#155](https://github.com/ravali-rimmalapudi/twilio-cli-core/issues/155)) ([27bd508](https://github.com/ravali-rimmalapudi/twilio-cli-core/commit/27bd508171b16eaf0036bdff7e0d21117570bf5f))
+* Updated api definitions ([906518f](https://github.com/twilio/twilio-cli-core/commit/906518f5fbdfa154604c5288f4ebd9eaf46a48b3))
 
 ---------------------------
 **Events**
@@ -18,7 +18,6 @@
 - Add post_approval_required attribute in GET us_app_to_person_usecase api response
 - Add Identity Status, Russell 3000, Tax Exempt Status and Should Skip SecVet fields for Brand Registrations
 - Add Should Skip Secondary Vetting optional flag parameter to create Brand API
-
 
 twilio-cli-core changelog
 =====================
