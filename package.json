@@ -20,11 +20,15 @@
     "/.github/scripts/update-release.js",
     "/.github/scripts/trigger-workflow.js"
   ],
+  "resolutions": {
+    "ansi-regex": "5.0.1"
+  },
   "scripts": {
     "lint": "eslint --ext js --ext jsx src/ test/",
     "lint:fix": "npm run lint -- --fix",
     "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
-    "posttest": "eslint --ignore-path .gitignore . && npm audit --audit-level=moderate"
+    "posttest": "eslint --ignore-path .gitignore . && npm audit --audit-level=moderate",
+    "preinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
     "@actions/core": "^1.0.0",
