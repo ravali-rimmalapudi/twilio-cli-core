@@ -1,3 +1,10 @@
+### [5.27.1-rc.2](https://github.com/ravali-rimmalapudi/twilio-cli-core/compare/5.27.1-rc.1...5.27.1-rc.2) (2021-11-15)
+
+
+### Library - Fixes
+
+* Updated ([0a4ab94](https://github.com/ravali-rimmalapudi/twilio-cli-core/commit/0a4ab9488597915e89e8f26d09ff80fd949abe8d))
+
 ### [5.27.1-rc.1](https://github.com/ravali-rimmalapudi/twilio-cli-core/compare/5.25.0-rc.1...5.27.1-rc.1) (2021-11-15)
 
 
