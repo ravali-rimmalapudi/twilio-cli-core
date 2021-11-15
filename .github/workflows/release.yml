@@ -100,25 +100,25 @@ jobs:
           TAG_NAME: ${{ steps.semantic-release.outputs.TAG_NAME }}
           RELEASE_BODY: ${{needs.update-api-specs.outputs.change-log}}
           REPO_NAME: ravali-rimmalapudi/twilio-cli-core
-  triggerCliWorkflow:
-    runs-on: ubuntu-latest
-    needs: [ update-api-specs, release]
-    steps:
-      - name: Checkout cli-core repo
-        uses: actions/checkout@v2
-      - run: |
-          git pull
-          npm install
-      - name: Invoke CLI workflow with changelog and version-type
-        run: |
-          fileName="$GITHUB_WORKSPACE/.github/scripts/trigger-workflow.js"
-          node -e "require('$fileName').triggerWorkflow()"
-        env:
-          REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-          WORKFLOW_NAME: 'release.yml'
-          BRANCH_NAME: ${{github.event.inputs.cli-branch}}
-          REPO_NAME: ravali-rimmalapudi/twilio-cli
-          INPUTS: '{ "change-log": ${{ toJSON(needs.update-api-specs.outputs.change-log) }}, "version-type": "${{needs.update-api-specs.outputs.version-type}}", "homebrew-branch": "${{github.event.inputs.homebrew-branch}}", "homebrew-prerelease": "${{github.event.inputs.homebrew-prerelease}}" }'
+#   triggerCliWorkflow:
+#     runs-on: ubuntu-latest
+#     needs: [ update-api-specs, release]
+#     steps:
+#       - name: Checkout cli-core repo
+#         uses: actions/checkout@v2
+#       - run: |
+#           git pull
+#           npm install
+#       - name: Invoke CLI workflow with changelog and version-type
+#         run: |
+#           fileName="$GITHUB_WORKSPACE/.github/scripts/trigger-workflow.js"
+#           node -e "require('$fileName').triggerWorkflow()"
+#         env:
+#           REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+#           WORKFLOW_NAME: 'release.yml'
+#           BRANCH_NAME: ${{github.event.inputs.cli-branch}}
+#           REPO_NAME: ravali-rimmalapudi/twilio-cli
+#           INPUTS: '{ "change-log": ${{ toJSON(needs.update-api-specs.outputs.change-log) }}, "version-type": "${{needs.update-api-specs.outputs.version-type}}", "homebrew-branch": "${{github.event.inputs.homebrew-branch}}", "homebrew-prerelease": "${{github.event.inputs.homebrew-prerelease}}" }'
 #   notify-complete-fail:
 #     if: ${{ failure() || cancelled() }}
 #     needs: [ triggerCliWorkflow ]
