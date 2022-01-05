@@ -9,6 +9,7 @@ if [ -f changeLog.md ]; then
   changeLog=$(cat changeLog.md)
   rm -rf changeLog.md
   if [ "$changeLog" != '' ]; then
+    changeLog="$changeLog$'\n'"
     changeLog="${changeLog//'%'/'%25'}"
     changeLog="${changeLog//$'\n'/'%0A'}"
     changeLog="${changeLog//$'\r'/'%0D'}"
