@@ -47,35 +47,35 @@ jobs:
 #           cache: 'npm'
 #       - name: Run tests
 #         run: npm test
-#   update-api-specs:
-#     runs-on: ubuntu-latest
+  update-api-specs:
+    runs-on: ubuntu-latest
 #     needs: [test]
-#     outputs:
-#       change-log: ${{ steps.update-specs.outputs.change-log }}
-#       version-type: ${{ steps.update-specs.outputs.version-type }}
-#     steps:
-#       - name: Create temporary folder for copying json files from OAI repo
-#         run: mkdir -p ~/oai_definitions/json
-#       - name: Checkout OAI repo
-#         uses: actions/checkout@v2
-#         with:
-#           repository: 'ravali-rimmalapudi/twilio-oai'
-#           token:  ${{ secrets.REPO_ACCESS_TOKEN }}
-#       - run: |
-#           cp -R spec/json/. ~/oai_definitions/json/
-#           cp -R CHANGES.md ~/oai_definitions/CHANGES.md
-#       - name: Checkout cli-core repo
-#         uses: actions/checkout@v2
-#         with:
-#           token:  ${{ secrets.REPO_ACCESS_TOKEN }}
-#       - name: Update OAI specs
-#         id: update-specs
-#         run: |
-#           npm install
-#           cp -R ~/oai_definitions/CHANGES.md OAI_CHANGES.md
-#           source .github/scripts/update-api-spec-with-changelog.sh
-#           echo "::set-output name=change-log::$changeLog"
-#           echo "::set-output name=version-type::$versionType"
+    outputs:
+      change-log: ${{ steps.update-specs.outputs.change-log }}
+      version-type: ${{ steps.update-specs.outputs.version-type }}
+    steps:
+      - name: Create temporary folder for copying json files from OAI repo
+        run: mkdir -p ~/oai_definitions/json
+      - name: Checkout OAI repo
+        uses: actions/checkout@v2
+        with:
+          repository: 'ravali-rimmalapudi/twilio-oai'
+          token:  ${{ secrets.REPO_ACCESS_TOKEN }}
+      - run: |
+          cp -R spec/json/. ~/oai_definitions/json/
+          cp -R CHANGES.md ~/oai_definitions/CHANGES.md
+      - name: Checkout cli-core repo
+        uses: actions/checkout@v2
+        with:
+          token:  ${{ secrets.REPO_ACCESS_TOKEN }}
+      - name: Update OAI specs
+        id: update-specs
+        run: |
+          npm install
+          cp -R ~/oai_definitions/CHANGES.md OAI_CHANGES.md
+          source .github/scripts/update-api-spec-with-changelog.sh
+          echo "::set-output name=change-log::$changeLog"
+          echo "::set-output name=version-type::$versionType"
 #   release:
 #     runs-on: ubuntu-latest
 #     needs: [update-api-specs]
@@ -106,7 +106,7 @@ jobs:
 #           REPO_NAME: ravali-rimmalapudi/twilio-cli-core
   triggerCliWorkflow:
     runs-on: ubuntu-latest
-#     needs: [ update-api-specs, release]
+    needs: [ update-api-specs]
     steps:
       - name: Checkout cli-core repo
         uses: actions/checkout@v2
@@ -122,4 +122,4 @@ jobs:
           WORKFLOW_NAME: 'release.yml'
           BRANCH_NAME: ${{github.event.inputs.cli-branch}}
           REPO_NAME: ravali-rimmalapudi/twilio-cli
-          INPUTS: '{ "change-log": "---------------------------\n**Conversations**\n- Add `Service Webhook Configuration` resource\n\n**Flex**\n- Adding `flex_insights_drilldown` and `flex_url` objects to Flex Configuration\n\n**Messaging**\n- Update us_app_to_person endpoints to remove beta feature flag based access\n\n**Supersim**\n- Add IP Commands resource\n\n**Verify**\n- Add optional `factor_friendly_name` parameter to the create access token endpoint.\n\n**Video**\n- Add maxParticipantDuration param to Rooms\n\n**Twiml**\n- Unrevert Add supported SSML children to `<emphasis>`, `<lang>`, `<p>`, `<prosody>`, `<s>`, and `<w>`.\n- Revert Add supported SSML children to `<emphasis>`, `<lang>`, `<p>`, `<prosody>`, `<s>`, and `<w>`.", "version-type": "1", "homebrew-branch": "${{github.event.inputs.homebrew-branch}}", "homebrew-prerelease": "${{github.event.inputs.homebrew-prerelease}}" }'
+          INPUTS: '{ "change-log": ${{needs.update-api-specs.outputs.change-log}}", "version-type": "1", "homebrew-branch": "${{github.event.inputs.homebrew-branch}}", "homebrew-prerelease": "${{github.event.inputs.homebrew-prerelease}}" }'
