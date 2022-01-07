@@ -1,3 +1,19 @@
+## [6.0.0](https://github.com/ravali-rimmalapudi/twilio-cli-core/compare/5.30.0...6.0.0) (2022-01-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* Added changes to store profiles in config instead of keytar
+
+### Library - Fixes
+
+* test ([1a07e67](https://github.com/ravali-rimmalapudi/twilio-cli-core/commit/1a07e67450f263b6d6c709cededd2b8f4747ead2))
+
+
+### Library - Features
+
+* Added changes ([#1](https://github.com/ravali-rimmalapudi/twilio-cli-core/issues/1)) ([651f94e](https://github.com/ravali-rimmalapudi/twilio-cli-core/commit/651f94ea9f487faa480c1ebb9ac3fd68e961d2df))
+
 ---------------------------
 **Library - Fix**
 - [PR #44](https://github.com/twilio/twilio-oai/pull/44): fix naming of params. Thanks to [@shwetha-manvinkurke](https://github.com/shwetha-manvinkurke)!
