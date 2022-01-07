@@ -88,7 +88,7 @@ jobs:
           persist-credentials: false
       - run: |
           git pull
-          npm install
+          make install
       - name: semanticRelease
         id: semantic-release
         run: DEBUG=semantic-release:* $(npm bin)/semantic-release  -t \${version}
